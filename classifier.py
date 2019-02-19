@@ -1,7 +1,8 @@
 import pickle
+import sys
 from operator import add
 from numpy import *
-from matplotlib.pyplot import *
+import matplotlib.pyplot as plt
 
 
 def classify(vector, weights):
@@ -62,8 +63,16 @@ for n in range(num_epoch):
     m_test_acc.append(calc_accuracy(testing_set, model_history[n]))
     t_test_acc.append(calc_accuracy(testing_set, avg_model_history[n]))
 
-print(m_train_acc)
-print(t_train_acc)
+to_plot = [m_train_acc, t_train_acc, m_test_acc, t_test_acc]
 
-print(m_test_acc)
-print(t_test_acc)
+for i in range(0, len(to_plot)):
+    plt.plot(range(0, num_epoch), to_plot[i])
+
+plt.xlabel('epoch')
+plt.ylabel('Accuracy')
+
+plt.title("Perceptron Training Accuracy")
+plt.legend()
+
+plt.show()
+
