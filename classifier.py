@@ -64,9 +64,10 @@ for n in range(num_epoch):
     t_test_acc.append(calc_accuracy(testing_set, avg_model_history[n]))
 
 to_plot = [m_train_acc, t_train_acc, m_test_acc, t_test_acc]
+labels = ['current model - train', 'avg model - train', 'current model - test', 'avg model - test']
 
 for i in range(0, len(to_plot)):
-    plt.plot(range(0, num_epoch), to_plot[i])
+    plt.plot(range(0, num_epoch), to_plot[i], label=labels[i])
 
 plt.xlabel('epoch')
 plt.ylabel('Accuracy')
