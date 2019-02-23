@@ -1,0 +1,26 @@
+Jack Lenzotti
+Survey of Advanced AI
+HW3
+
+Files--------
+scraper.py
+    compiles data sets for use in training
+
+classifier.py
+    trains models in order to be used in perceptron classifier
+
+Instructions to run----------
+
+running 'python scraper.py' will scrape the associated data files, and write them to memory for quick reading between runs
+
+running 'python classifier.py [nEpoch] [ignoredIndices]' will run the classifier and plot model accuracy
+    @required nEpoch is the number of epochs to run before termination
+    @optional ignoredIndices is the indices to ignore seperated by spaces
+
+Example: python classifier.py 30 0 1 2
+
+Will train for 30 epochs, ignoring dayOfTheWeek (as the one-hots take up three indices)
+
+Example: python classifier.py 20 16
+
+Will train for 20 epochs, ignoring snacks
